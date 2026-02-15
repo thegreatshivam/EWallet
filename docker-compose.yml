@@ -3,7 +3,7 @@ services:
     image: postgres:15
     environment:
       POSTGRES_DB: ${DB_NAME:-wallet_db}
-      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_USER: ${DB_USER:-postgresuser}
       POSTGRES_PASSWORD: ${DB_PASSWORD:-secret}
     ports:
       - "5432:5432"
@@ -21,7 +21,7 @@ services:
       JAVA_OPTS: "-Duser.timezone=UTC"
       # We reference 'db' as the host because they are in the same docker network
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${DB_NAME:-wallet_db}
-      SPRING_DATASOURCE_USERNAME: ${DB_USER:-postgres-user}
+      SPRING_DATASOURCE_USERNAME: ${DB_USER:-postgresuser}
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-secret}
     depends_on:
       db:
