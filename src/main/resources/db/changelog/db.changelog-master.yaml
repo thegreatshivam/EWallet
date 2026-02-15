@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Shivam Kumar
+      changes:
+        - createTable:
+            tableName: wallets
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: balance
+                  type: DECIMAL(19, 2)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: Shivam Kumar
+      changes:
+        - insert:
+            tableName: wallets
+            columns:
+              - column:
+                  name: id
+                  value: "550e8400-e29b-41d4-a716-446655440000"
+              - column:
+                  name: balance
+                  value: 1000.00
